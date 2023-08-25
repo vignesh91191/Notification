@@ -8,6 +8,7 @@ import * as signalR from '@microsoft/signalr'
 })
 export class NotificationComponent implements OnInit {
   private hubConnection: signalR.HubConnection | undefined;
+  message: string | undefined;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,7 +21,7 @@ export class NotificationComponent implements OnInit {
 
     this.hubConnection.on('ReceiveNotification', (message: string) => {
       debugger;
-      var msg = message;
+      this.message = message;
       // Handle received notifications
     });
 
